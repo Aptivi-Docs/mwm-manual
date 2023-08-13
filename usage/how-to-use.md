@@ -10,7 +10,6 @@ Just use the `Forecast` class that contains:
 
 * `GetWeatherInfo(long, string, UnitMeasurement)`
 * `GetWeatherInfo(string, string, UnitMeasurement)`
-* `GetWeatherInfo(string, UnitMeasurement)`
 * `ListAllCities()`
 
 The first three functions download the weather information for either the specified city ID or city name and return the relevant weather information, `ForecastInfo`, that contains these properties:
@@ -44,3 +43,13 @@ where the `UnitMeasurement` is:
 {% hint style="warning" %}
 You're required to provide the API key for each weather operation, which you can get by [visiting this page](https://home.openweathermap.org/api\_keys).
 {% endhint %}
+
+### Asynchronous Operation
+
+For web development and other cases where asynchronous development is appropriate, you can use the below functions which are declared to be asynchronous:
+
+```csharp
+public static async Task<ForecastInfo> GetWeatherInfoAsync(long CityID, string APIKey, UnitMeasurement Unit = UnitMeasurement.Metric)
+public static async Task<ForecastInfo> GetWeatherInfoAsync(string CityName, string APIKey, UnitMeasurement Unit = UnitMeasurement.Metric)
+public static async Task<Dictionary<long, string>> ListAllCitiesAsync()
+```
